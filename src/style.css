@@ -55,15 +55,8 @@ a:hover { text-decoration: underline; }
 .nav-logo {
   width: 32px;
   height: 32px;
-  background: var(--accent);
   border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 18px;
-  color: white;
+  flex-shrink: 0;
 }
 .nav-name { font-weight: 700; font-size: 18px; letter-spacing: -0.02em; }
 .nav-links { display: flex; gap: 20px; }

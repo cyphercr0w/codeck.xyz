@@ -30,7 +30,14 @@ export function App() {
       <nav class="nav">
         <div class="nav-inner">
           <a href="/" class="nav-brand">
-            <span class="nav-logo">C</span>
+            <svg class="nav-logo" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="6" fill="#0a0a0b"/>
+              <g stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 24h24"/><path d="M8 24V12"/><path d="M24 24V12"/>
+                <path d="M8 12c0-4 3.5-7 8-7s8 3 8 7"/>
+                <path d="M13 24v-5"/><path d="M19 24v-5"/><path d="M4 19h24"/>
+              </g>
+            </svg>
             <span class="nav-name">Codeck</span>
           </a>
           <div class="nav-links">
