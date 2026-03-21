@@ -3,6 +3,10 @@
     {
       "source": "/install",
       "destination": "https://raw.githubusercontent.com/cyphercr0w/codeck/main/scripts/install.sh"
+    },
+    {
+      "source": "/install.ps1",
+      "destination": "https://raw.githubusercontent.com/cyphercr0w/codeck/main/scripts/install.ps1"
     }
   ]
 }
