@@ -21,8 +21,35 @@ function CopyButton({ text }: { text: string }) {
   );
 }
 
+function detectOS(): 'linux' | 'windows' {
+  const ua = navigator.userAgent.toLowerCase();
+  if (ua.includes('win')) return 'windows';
+  return 'linux';
+}
+
+const INSTALL_CMDS = {
+  linux: 'curl -fsSL https://codeck.xyz/install | bash',
+  windows: 'irm https://codeck.xyz/install.ps1 | iex',
+};
+
+function InstallBox() {
+  const [os, setOs] = useState<'linux' | 'windows'>(detectOS);
+
+  return (
+    <div class="install-wrapper">
+      <div class="install-tabs">
+        <button class={`install-tab${os === 'linux' ? ' active' : ''}`} onClick={() => setOs('linux')}>Linux / macOS</button>
+        <button class={`install-tab${os === 'windows' ? ' active' : ''}`} onClick={() => setOs('windows')}>Windows</button>
+      </div>
+      <div class="install-box">
+        <code class="install-cmd">{INSTALL_CMDS[os]}</code>
+        <CopyButton text={INSTALL_CMDS[os]} />
+      </div>
+    </div>
+  );
+}
+
 export function App() {
-  const installCmd = 'curl -fsSL https://codeck.xyz/install | bash';
 
   return (
     <div class="page">
@@ -59,11 +86,8 @@ export function App() {
           accessible from any device, with pre-configured tools and skills.
           One command to install.
         </p>
-        <div class="install-box">
-          <code class="install-cmd">{installCmd}</code>
-          <CopyButton text={installCmd} />
-        </div>
-        <p class="hero-hint">Requires Docker. Works on any Linux VPS or macOS.</p>
+        <InstallBox />
+        <p class="hero-hint">Requires Docker. Works on Linux, macOS, and Windows.</p>
       </section>
 
       {/* Features */}
@@ -172,10 +196,7 @@ export function App() {
       <section class="cta">
         <h2 class="cta-title">Start building with persistent AI</h2>
         <p class="cta-sub">Free. Open source. Self-hosted. Your data stays on your machine.</p>
-        <div class="install-box">
-          <code class="install-cmd">{installCmd}</code>
-          <CopyButton text={installCmd} />
-        </div>
+        <InstallBox />
         <div class="cta-links">
           <a href="https://github.com/cyphercr0w/codeck" target="_blank" rel="noopener noreferrer" class="cta-link">
             View on GitHub
