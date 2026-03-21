@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/install",
+      "destination": "https://raw.githubusercontent.com/cyphercr0w/codeck/main/scripts/install.sh"
+    }
+  ]
+}
