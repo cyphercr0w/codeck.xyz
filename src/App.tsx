@@ -277,8 +277,93 @@ export function App() {
 						</svg>
 						<span class="feature-name">One-click integrations</span>
 						<span class="feature-desc">
-							GitHub, Vercel, Supabase, Stripe — add your API key once, the
+							GitHub, Vercel, Supabase, Stripe, Slack, AWS — connect once, the
 							agent uses it everywhere.
+						</span>
+					</li>
+					<li class="feature-row">
+						<svg
+							class="feature-icon"
+							width="18"
+							height="18"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.75"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+							<circle cx="9" cy="7" r="4" />
+							<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+							<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+						</svg>
+						<span class="feature-name">Agent Teams</span>
+						<span class="feature-desc">
+							Claude assembles its own team — spawns researchers, implementers,
+							and reviewers that work in parallel.
+						</span>
+					</li>
+					<li class="feature-row">
+						<svg
+							class="feature-icon"
+							width="18"
+							height="18"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.75"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+						</svg>
+						<span class="feature-name">Token optimization</span>
+						<span class="feature-desc">
+							On-demand rules, output compression, and smart compaction keep
+							Claude effective in long sessions.
+						</span>
+					</li>
+					<li class="feature-row">
+						<svg
+							class="feature-icon"
+							width="18"
+							height="18"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.75"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+							<line x1="4" y1="22" x2="4" y2="15" />
+						</svg>
+						<span class="feature-name">89K+ community skills</span>
+						<span class="feature-desc">
+							Browse and install from the largest skill marketplace. One click
+							to add any capability.
+						</span>
+					</li>
+					<li class="feature-row">
+						<svg
+							class="feature-icon"
+							width="18"
+							height="18"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.75"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<polyline points="23 4 23 10 17 10" />
+							<path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+						</svg>
+						<span class="feature-name">1-command updates</span>
+						<span class="feature-desc">
+							Run the installer again to update. Your data, memory, and config
+							are always preserved.
 						</span>
 					</li>
 				</ul>
