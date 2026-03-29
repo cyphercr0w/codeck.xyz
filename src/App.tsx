@@ -284,6 +284,15 @@ export function App() {
 				</ul>
 			</section>
 
+			{/* Footer CTA */}
+			<section class="footer-cta">
+				<h2 class="footer-cta-title">Ready to start?</h2>
+				<p class="footer-cta-sub">
+					Free forever. Your data stays on your machine.
+				</p>
+				<InstallBox />
+			</section>
+
 			{/* Footer */}
 			<footer class="footer">
 				<span>Codeck &copy; {new Date().getFullYear()}</span>

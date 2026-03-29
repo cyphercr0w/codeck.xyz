@@ -95,6 +95,7 @@ a:hover {
 	max-width: var(--max-w);
 	margin: 0 auto;
 	padding: 72px 24px 56px;
+	text-align: center;
 }
 .hero-title {
 	font-size: clamp(36px, 6vw, 52px);
@@ -113,7 +114,7 @@ a:hover {
 	font-size: 17px;
 	color: var(--text-secondary);
 	max-width: 520px;
-	margin-bottom: 32px;
+	margin: 0 auto 32px;
 	line-height: 1.6;
 }
 .hero-meta {
@@ -131,6 +132,7 @@ a:hover {
 }
 .install-tabs {
 	display: flex;
+	justify-content: center;
 	gap: 0;
 	margin-bottom: 8px;
 }
@@ -248,14 +250,34 @@ a:hover {
 	line-height: 1.5;
 }
 
+/* ── Footer CTA ── */
+.footer-cta {
+	max-width: var(--max-w);
+	margin: 0 auto;
+	padding: 64px 24px;
+	text-align: center;
+	border-top: 1px solid var(--border);
+}
+.footer-cta-title {
+	font-size: 22px;
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	margin-bottom: 8px;
+}
+.footer-cta-sub {
+	font-size: 14px;
+	color: var(--text-muted);
+	margin-bottom: 28px;
+}
+
 /* ── Footer ── */
 .footer {
 	max-width: var(--max-w);
 	margin: 0 auto;
-	padding: 20px 24px;
-	border-top: 1px solid var(--border);
+	padding: 20px 24px 32px;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	gap: 8px;
 	font-size: 13px;
 	color: var(--text-muted);
