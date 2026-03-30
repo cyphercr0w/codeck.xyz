@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks";
+import { Showcase } from "./showcase/Showcase";
 
 function CopyButton({ text }: { text: string }) {
 	const [copied, setCopied] = useState(false);
@@ -151,8 +152,11 @@ export function App() {
 				</p>
 			</section>
 
+			<Showcase />
+
 			{/* What you get */}
 			<section class="features">
+				<h2 class="features-title">What you get</h2>
 				<div class="feature-grid">
 					<div class="feature-card">
 						<div class="feature-icon-wrap">
