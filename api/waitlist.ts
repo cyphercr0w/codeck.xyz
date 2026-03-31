@@ -5,7 +5,7 @@ let client: MongoClient | null = null;
 
 async function getCollection() {
 	if (!client) {
-		client = new MongoClient(process.env.CODECK_DB_URL!);
+		client = new MongoClient(process.env.CODECK_DB_MONGODB_URI!);
 		await client.connect();
 	}
 	return client.db("codeck").collection("waitlist");
