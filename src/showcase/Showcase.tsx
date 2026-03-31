@@ -1,5 +1,5 @@
 import "./showcase.css";
-import { useState, useEffect, useCallback, useRef } from "preact/hooks";
+import { useState, useEffect, useCallback } from "preact/hooks";
 import { TerminalSlide } from "./TerminalSlide";
 import { MemorySlide } from "./MemorySlide";
 import { TeamsSlide } from "./TeamsSlide";
@@ -47,43 +47,34 @@ const SLIDE_COMPONENTS = [
 	IntegrationsSlide,
 ];
 
-// Duration of each slide's animation + 3s pause after it finishes
+// Full duration for each slide: animation time + 3s viewing pause
 const SLIDE_DURATIONS = [
-	8500, // Terminal: typing(1s) + output(3.2s) + preview(1.4s) + 3s
-	7000, // Memory: typing(0.7s) + output(3.2s) + 3s
-	17000, // Teams: typing(0.7s) + agents(6.5s) + researcher(5.2s) + main reply(1.3s) + 3s
+	8000, // Terminal: typing(0.8s) + send(0.2s) + preview(2s) + skeleton(1.7s) + 3s
+	7000, // Memory: typing(0.5s) + send(0.2s) + output(3.2s) + 3s
+	17000, // Teams: typing(0.7s) + lead(6.5s) + researcher(5.2s) + return(1.3s) + 3s
 	13500, // Config: 3 phases × 3.5s + 3s
 	11000, // Integrations: grid(3s) + flow(5s) + 3s
 ];
 
 export function Showcase() {
 	const [active, setActive] = useState(0);
-	const [paused, setPaused] = useState(false);
-	const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+	// key increments on every slide change (including re-selecting same slide)
+	// to force component remount and restart animations
+	const [epoch, setEpoch] = useState(0);
 
 	const goTo = useCallback((i: number) => {
 		setActive(i);
-		setPaused(true);
-		if (timerRef.current) clearTimeout(timerRef.current);
-		timerRef.current = setTimeout(() => setPaused(false), SLIDE_DURATIONS[i]);
+		setEpoch((e) => e + 1);
 	}, []);
 
-	// Auto-advance: wait per-slide duration, then go to next (loops infinitely)
+	// Auto-advance: one timeout per slide, resets on any active/epoch change
 	useEffect(() => {
-		if (paused) return;
-		const id = setTimeout(
-			() => setActive((p) => (p + 1) % SLIDES.length),
-			SLIDE_DURATIONS[active],
-		);
+		const id = setTimeout(() => {
+			setActive((p) => (p + 1) % SLIDES.length);
+			setEpoch((e) => e + 1);
+		}, SLIDE_DURATIONS[active]);
 		return () => clearTimeout(id);
-	}, [paused, active]);
-
-	useEffect(
-		() => () => {
-			if (timerRef.current) clearTimeout(timerRef.current);
-		},
-		[],
-	);
+	}, [active, epoch]);
 
 	const Comp = SLIDE_COMPONENTS[active];
 
@@ -106,7 +97,7 @@ export function Showcase() {
 				<p class="showcase-cap-desc">{SLIDES[active].desc}</p>
 			</div>
 			<div class="showcase-viewport">
-				<div class="showcase-slide" key={active}>
+				<div class="showcase-slide" key={epoch}>
 					<Comp />
 				</div>
 			</div>

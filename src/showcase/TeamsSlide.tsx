@@ -118,22 +118,24 @@ export function TeamsSlide() {
 									<span class="cc-tool">⚡ Agent</span>
 									<span class="cc-agent-badge reviewer">reviewer</span>
 								</div>
-								{/* New: incoming message from researcher */}
+								{/* Incoming message from researcher */}
 								<div class="cc-line cc-d0">
+									<span class="cc-tool">⚡ Message from</span>
 									<span class="cc-agent-badge researcher">researcher</span>
-									<span class="cc-output">
-										Research complete. PKCE flow documented in{" "}
-										<span class="cc-tool-path">research/oauth2-pkce.md</span> —
-										recommending Authorization Code + PKCE with SHA-256
-										challenge. Ready for implementation.
-									</span>
 								</div>
 								<div class="cc-line cc-d1">
-									<span class="cc-output">
-										Got it. Passing findings to the implementer now.
+									<span class="cc-output cc-dim">
+										PKCE flow documented in{" "}
+										<span class="cc-tool-path">research/oauth2-pkce.md</span>.
+										Recommending Auth Code + PKCE with SHA-256.
 									</span>
 								</div>
 								<div class="cc-line cc-d2">
+									<span class="cc-output">
+										Got it. Forwarding to implementer.
+									</span>
+								</div>
+								<div class="cc-line cc-d3">
 									<span class="cc-cursor">█</span>
 								</div>
 							</TermScroll>

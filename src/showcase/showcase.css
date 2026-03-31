@@ -457,6 +457,8 @@
 }
 .cc-output {
 	color: var(--ck-text2);
+	flex: 1;
+	min-width: 0;
 }
 .cc-dim {
 	opacity: 0.6;
