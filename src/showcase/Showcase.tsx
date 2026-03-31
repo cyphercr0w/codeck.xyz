@@ -47,6 +47,15 @@ const SLIDE_COMPONENTS = [
 	IntegrationsSlide,
 ];
 
+// Duration of each slide's animation + 3s pause after it finishes
+const SLIDE_DURATIONS = [
+	8500, // Terminal: typing(1s) + output(3.2s) + preview(1.4s) + 3s
+	7000, // Memory: typing(0.7s) + output(3.2s) + 3s
+	13000, // Teams: typing(0.9s) + agents(5.5s) + researcher(3.7s) + 3s
+	13500, // Config: 3 phases × 3.5s + 3s
+	9000, // Integrations: grid(2.5s) + flow(3.5s) + 3s
+];
+
 export function Showcase() {
 	const [active, setActive] = useState(0);
 	const [paused, setPaused] = useState(false);
@@ -56,17 +65,18 @@ export function Showcase() {
 		setActive(i);
 		setPaused(true);
 		if (timerRef.current) clearTimeout(timerRef.current);
-		timerRef.current = setTimeout(() => setPaused(false), 12000);
+		timerRef.current = setTimeout(() => setPaused(false), SLIDE_DURATIONS[i]);
 	}, []);
 
+	// Auto-advance: wait per-slide duration, then go to next (loops infinitely)
 	useEffect(() => {
 		if (paused) return;
-		const id = setInterval(
+		const id = setTimeout(
 			() => setActive((p) => (p + 1) % SLIDES.length),
-			8000,
+			SLIDE_DURATIONS[active],
 		);
-		return () => clearInterval(id);
-	}, [paused]);
+		return () => clearTimeout(id);
+	}, [paused, active]);
 
 	useEffect(
 		() => () => {
