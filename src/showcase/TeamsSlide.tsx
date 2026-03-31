@@ -15,16 +15,16 @@ export function TeamsSlide() {
 	const [entered, setEntered] = useState(false);
 
 	const handleSent = useCallback(() => {
-		// @main appears with TeamCreate (cc-d2=0.9s)
-		setTimeout(() => setVisibleChips(1), 1000);
-		// Chips appear as each "Agent X" line shows (cc-d6=2.7s, cc-d7=3.2s, cc-d8=3.7s)
-		setTimeout(() => setVisibleChips(2), 2800);
-		setTimeout(() => setVisibleChips(3), 3300);
-		setTimeout(() => setVisibleChips(4), 3800);
-		// Arrow down to select @researcher at 5s
-		setTimeout(() => setSelected(1), 5000);
-		// "Enter" at 6s — switch to researcher content (same shell, new output)
-		setTimeout(() => setEntered(true), 6000);
+		// @main appears with TeamCreate (cc-d6=2.7s)
+		setTimeout(() => setVisibleChips(1), 2800);
+		// Agents spawn one by one (cc-d7=3.2s, cc-d8=3.7s, cc-d9=4.2s)
+		setTimeout(() => setVisibleChips(2), 3300);
+		setTimeout(() => setVisibleChips(3), 3800);
+		setTimeout(() => setVisibleChips(4), 4300);
+		// Select @researcher at 5.5s
+		setTimeout(() => setSelected(1), 5500);
+		// Enter researcher at 6.5s
+		setTimeout(() => setEntered(true), 6500);
 	}, []);
 
 	const chipBar =
@@ -44,7 +44,6 @@ export function TeamsSlide() {
 			</div>
 		) : undefined;
 
-	// Researcher output (replaces lead output when entered)
 	const researcherOutput = (
 		<TermScroll>
 			<div class="cc-line cc-d0">
@@ -100,7 +99,6 @@ export function TeamsSlide() {
 					]}
 				/>
 				{entered ? (
-					/* Researcher phase: same layout, different content */
 					<div class="ck-term-input-wrap">
 						<div class="ck-term-output">{researcherOutput}</div>
 						<div class="ck-input-bar">
@@ -110,55 +108,60 @@ export function TeamsSlide() {
 						{chipBar}
 					</div>
 				) : (
-					/* Lead phase: typing + output + chips */
 					<TerminalWithInput
 						message="Implement OAuth2 PKCE authentication with tests"
 						onSent={handleSent}
 						chips={chipBar}
 					>
+						{/* Phase 1: Break down into tasks */}
 						<div class="cc-line cc-d1">
 							<span class="cc-output">
-								Let me assemble a team of agents to implement this. I'll split
-								the work into research, implementation, and review.
+								I'll break this into three tasks first.
 							</span>
 						</div>
 						<div class="cc-line cc-d2">
-							<span class="cc-tool">⚡ TeamCreate</span>
-							<span class="cc-tool-detail">feature-auth</span>
-						</div>
-						<div class="cc-line cc-d3">
 							<span class="cc-tool">⚡ TaskCreate</span>
 							<span class="cc-tool-cmd">Research OAuth2 PKCE flow</span>
 						</div>
-						<div class="cc-line cc-d4">
+						<div class="cc-line cc-d3">
 							<span class="cc-tool">⚡ TaskCreate</span>
 							<span class="cc-tool-cmd">Implement auth middleware</span>
 						</div>
-						<div class="cc-line cc-d5">
+						<div class="cc-line cc-d4">
 							<span class="cc-tool">⚡ TaskCreate</span>
 							<span class="cc-tool-cmd">Write integration tests</span>
 						</div>
+						{/* Phase 2: Assemble the team */}
+						<div class="cc-line cc-d5">
+							<span class="cc-output">
+								Now let me assemble a team to tackle these in parallel.
+							</span>
+						</div>
 						<div class="cc-line cc-d6">
+							<span class="cc-tool">⚡ TeamCreate</span>
+							<span class="cc-tool-detail">feature-auth</span>
+						</div>
+						<div class="cc-line cc-d7">
 							<span class="cc-tool">⚡ Agent</span>
 							<span class="cc-agent-badge researcher">researcher</span>
 							<span class="cc-tool-detail">Analyzing OAuth2 PKCE flow</span>
 						</div>
-						<div class="cc-line cc-d7">
+						<div class="cc-line cc-d8">
 							<span class="cc-tool">⚡ Agent</span>
 							<span class="cc-agent-badge implementer">implementer</span>
 							<span class="cc-tool-detail">Writing auth middleware</span>
 						</div>
-						<div class="cc-line cc-d8">
+						<div class="cc-line cc-d9">
 							<span class="cc-tool">⚡ Agent</span>
 							<span class="cc-agent-badge reviewer">reviewer</span>
 							<span class="cc-tool-detail">Waiting for implementation</span>
 						</div>
-						<div class="cc-line cc-d9">
+						<div class="cc-line cc-d10">
 							<span class="cc-output cc-dim">
 								3 agents running in parallel...
 							</span>
 						</div>
-						<div class="cc-line cc-d10">
+						<div class="cc-line cc-d11">
 							<span class="cc-cursor">█</span>
 						</div>
 					</TerminalWithInput>

@@ -385,6 +385,9 @@
 .cc-d10 {
 	animation-delay: 4.7s;
 }
+.cc-d11 {
+	animation-delay: 5.2s;
+}
 @keyframes ccAppear {
 	from {
 		opacity: 0;
