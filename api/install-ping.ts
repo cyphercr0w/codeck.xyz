@@ -12,6 +12,28 @@ async function getCollection() {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+	if (req.method === "GET") {
+		try {
+			const col = await getCollection();
+			const counter = await col.findOne({ _id: "counter" as any });
+			const recent = await col
+				.find({ _id: { $ne: "counter" as any } })
+				.sort({ ts: -1 })
+				.limit(10)
+				.toArray();
+			return res.status(200).json({
+				total: counter?.total || 0,
+				recent: recent.map((r) => ({
+					ts: r.ts,
+					version: r.version,
+					os: r.os,
+				})),
+			});
+		} catch {
+			return res.status(500).json({ error: "Failed to read stats" });
+		}
+	}
+
 	if (req.method !== "POST") {
 		return res.status(405).json({ error: "Method not allowed" });
 	}
