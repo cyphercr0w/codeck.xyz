@@ -1,6 +1,65 @@
 import { useState } from "preact/hooks";
 import { Showcase } from "./showcase/Showcase";
 
+function WaitlistForm() {
+	const [email, setEmail] = useState("");
+	const [state, setState] = useState<
+		"idle" | "loading" | "done" | "exists" | "error"
+	>("idle");
+
+	async function handleSubmit(e: Event) {
+		e.preventDefault();
+		if (!email.trim() || state === "loading") return;
+		setState("loading");
+		try {
+			const res = await fetch("/api/waitlist", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({ email: email.trim() }),
+			});
+			if (res.status === 409) {
+				setState("exists");
+			} else if (res.ok) {
+				setState("done");
+			} else {
+				setState("error");
+			}
+		} catch {
+			setState("error");
+		}
+	}
+
+	if (state === "done") {
+		return (
+			<p class="waitlist-success">You're on the list. We'll reach out soon.</p>
+		);
+	}
+
+	return (
+		<form class="waitlist-form" onSubmit={handleSubmit}>
+			<input
+				type="email"
+				class="waitlist-input"
+				placeholder="you@email.com"
+				value={email}
+				onInput={(e) => setEmail((e.target as HTMLInputElement).value)}
+				required
+			/>
+			<button class="waitlist-btn" type="submit" disabled={state === "loading"}>
+				{state === "loading" ? "Joining..." : "Join waitlist"}
+			</button>
+			{state === "exists" && (
+				<p class="waitlist-msg">You're already on the list!</p>
+			)}
+			{state === "error" && (
+				<p class="waitlist-msg waitlist-error">
+					Something went wrong. Try again.
+				</p>
+			)}
+		</form>
+	);
+}
+
 function CopyButton({ text }: { text: string }) {
 	const [copied, setCopied] = useState(false);
 
@@ -391,6 +450,17 @@ export function App() {
 						</span>
 					</div>
 				</div>
+			</section>
+
+			{/* Cloud Waitlist */}
+			<section class="waitlist">
+				<h2 class="waitlist-title">Codeck Cloud — coming soon</h2>
+				<p class="waitlist-sub">
+					Don't want to self-host? We'll run Codeck for you — a dedicated VPS
+					online 24/7 with your own subdomain. Join the waitlist for a 7-day
+					free trial.
+				</p>
+				<WaitlistForm />
 			</section>
 
 			{/* Footer CTA */}
