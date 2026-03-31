@@ -1,0 +1,37 @@
+# Codeck
+
+> Self-hosted Claude Code sandbox with persistent memory, agent teams, and 116+ pre-configured skills. Always on. Access from any device.
+
+## Docs
+
+- [Documentation](https://docs.codeck.xyz)
+- [GitHub](https://github.com/cyphercr0w/codeck)
+- [Install (Linux/macOS)](https://codeck.xyz/install)
+- [Install (Windows)](https://codeck.xyz/install.ps1)
+
+## What is Codeck?
+
+Codeck is a persistent cloud sandbox for Claude Code. It gives developers an always-on AI coding environment with:
+
+- Persistent memory that survives across sessions
+- 66+ specialized sub-agents for different tasks
+- 116+ pre-configured skills (security, testing, architecture, etc.)
+- 59+ slash commands
+- Agent teams for parallel multi-agent work
+- Live preview panel with HMR
+- Token optimization (60-90% savings)
+- One-click OAuth integrations (GitHub, Supabase, Vercel, etc.)
+- Scheduled agents (cron-based autonomous tasks)
+- Access from any device via web terminal
+
+## Installation
+
+Linux/macOS:
+curl -fsSL https://codeck.xyz/install | bash
+
+Windows (PowerShell):
+irm codeck.xyz/install.ps1 | iex
+
+## Optional
+
+- [Codeck Cloud Waitlist](https://codeck.xyz) — Managed hosted version coming soon

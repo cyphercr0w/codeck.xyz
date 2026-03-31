@@ -1,0 +1,89 @@
+# Codeck — Complete Reference
+
+> Self-hosted Claude Code sandbox with persistent memory, agent teams, and 116+ pre-configured skills. One command to install. Access from any device.
+
+## Overview
+
+Codeck transforms Claude Code from a local CLI tool into a persistent, always-on cloud development environment. It runs inside a Docker container with full filesystem access, pre-installed tools (Node.js 22, Python 3, Git, GitHub CLI, Docker CLI), and a rich agent infrastructure.
+
+Codeck is designed for developers who want:
+- A coding AI that remembers across sessions
+- Multiple specialized agents working in parallel
+- Pre-configured skills for common engineering tasks
+- Access to their development environment from any device
+- Autonomous scheduled agents that run on cron
+
+## Key Features
+
+### Persistent Memory
+Memory survives between sessions at /workspace/.codeck/memory/. Includes daily logs, project context, user preferences, and path-specific knowledge. The agent reads memory at session start and writes significant findings for future sessions.
+
+### Sub-Agents (66+)
+Specialized agents for different tasks: planner, architect, tdd-guide, code-reviewer, security-reviewer, build-error-resolver, e2e-runner, refactor-cleaner, doc-updater, and many more. Agents can be spawned in parallel for complex workflows.
+
+### Skills (116+)
+Pre-configured skill modules covering: Python patterns, Go testing, TypeScript review, Rust build resolution, Django security, Laravel patterns, Spring Boot TDD, Kubernetes architecture, Terraform, database optimization, performance engineering, and more.
+
+### Commands (59+)
+Slash commands for common operations: /commit, /review, /test, /build, /deploy, /docs, /learn, and dozens more.
+
+### Agent Teams
+Multi-agent orchestration where teams of agents work together on complex tasks. Includes task management, inter-agent messaging, and parallel execution.
+
+### Live Preview
+Split-panel preview with HMR. When a dev server starts, the preview opens automatically with real-time updates on every code change.
+
+### Token Optimization
+RTK (Rust Token Killer) proxy achieves 60-90% token savings on dev operations through intelligent output filtering.
+
+### One-Click Integrations
+OAuth-based integrations with GitHub, Supabase, Vercel, Stripe, and other services. API keys are securely stored and persist across sessions.
+
+### Scheduled Agents
+Cron-based autonomous agents that run on a schedule — deploy monitors, test runners, data pipelines, security scans.
+
+### Codeck Cloud (Coming Soon)
+Managed hosted version — no Docker required. Join the waitlist at https://codeck.xyz.
+
+## Installation
+
+### Linux / macOS
+curl -fsSL https://codeck.xyz/install | bash
+
+### Windows (PowerShell)
+irm codeck.xyz/install.ps1 | iex
+
+### Requirements
+- Docker installed and running
+- Internet connection for initial setup
+- Works on Linux, macOS, and Windows (WSL2)
+
+## Architecture
+
+- **Container**: Docker-based persistent workspace at /workspace/
+- **Runtime**: Node.js 22, Python 3, Git, GitHub CLI, Docker CLI
+- **Framework**: Preact-based web terminal with Vite bundler
+- **API**: Vercel serverless functions (waitlist endpoint)
+- **Database**: MongoDB for waitlist management
+- **Analytics**: Vercel Analytics for performance monitoring
+- **Memory**: File-based persistent memory system
+- **Agent System**: Claude Code sub-agents with role specialization
+
+## Links
+
+- Website: https://codeck.xyz
+- Documentation: https://docs.codeck.xyz
+- GitHub: https://github.com/cyphercr0w/codeck
+- Install Script: https://codeck.xyz/install
+- Windows Installer: https://codeck.xyz/install.ps1
+
+## Target Audience
+
+- Software engineers using Claude Code
+- Teams wanting persistent AI development environments
+- Developers who need multi-agent coding workflows
+- Anyone wanting access to their coding AI from any device
+
+## Pricing
+
+Codeck is open-source and free to self-host. Codeck Cloud (managed hosting) pricing TBA.

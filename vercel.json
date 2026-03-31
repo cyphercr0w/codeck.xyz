@@ -1,12 +1,30 @@
 {
-  "rewrites": [
-    {
-      "source": "/install",
-      "destination": "https://raw.githubusercontent.com/cyphercr0w/codeck/main/scripts/install.sh"
-    },
-    {
-      "source": "/install.ps1",
-      "destination": "https://raw.githubusercontent.com/cyphercr0w/codeck/main/scripts/install.ps1"
-    }
-  ]
+	"headers": [
+		{
+			"source": "/(.*)",
+			"headers": [
+				{ "key": "X-Content-Type-Options", "value": "nosniff" },
+				{ "key": "X-Frame-Options", "value": "DENY" },
+				{ "key": "X-XSS-Protection", "value": "1; mode=block" },
+				{
+					"key": "Referrer-Policy",
+					"value": "strict-origin-when-cross-origin"
+				},
+				{
+					"key": "Permissions-Policy",
+					"value": "camera=(), microphone=(), geolocation=()"
+				}
+			]
+		}
+	],
+	"rewrites": [
+		{
+			"source": "/install",
+			"destination": "https://raw.githubusercontent.com/cyphercr0w/codeck/main/scripts/install.sh"
+		},
+		{
+			"source": "/install.ps1",
+			"destination": "https://raw.githubusercontent.com/cyphercr0w/codeck/main/scripts/install.ps1"
+		}
+	]
 }

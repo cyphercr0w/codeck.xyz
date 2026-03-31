@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="https://codeck.xyz/" />
     <title>Codeck — Your AI Coding Agent, Always On</title>
     <meta name="description" content="Self-hosted Claude Code sandbox with persistent memory, agent teams, and 116 pre-configured skills. One command to install. Access from any device." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="Codeck" />
+    <meta name="theme-color" content="#0a0a0f" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -12,6 +16,8 @@
     <meta property="og:title" content="Codeck — Claude Code, always on." />
     <meta property="og:description" content="Self-hosted sandbox with persistent memory, agent teams, and 116 pre-configured skills. Access from any device." />
     <meta property="og:image" content="https://codeck.xyz/og-image.png" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Codeck" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -21,9 +27,53 @@
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="manifest" href="/manifest.json" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Codeck",
+          "url": "https://codeck.xyz",
+          "description": "Self-hosted Claude Code sandbox with persistent memory, agent teams, and 116 pre-configured skills."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Codeck",
+          "url": "https://codeck.xyz",
+          "description": "Self-hosted Claude Code sandbox with persistent memory, agent teams, and 116 pre-configured skills. One command to install. Access from any device.",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Linux, macOS, Windows",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "author": {
+            "@type": "Organization",
+            "name": "Codeck",
+            "url": "https://codeck.xyz"
+          },
+          "downloadUrl": "https://codeck.xyz/install",
+          "softwareVersion": "1.0",
+          "screenshot": "https://codeck.xyz/og-image.png"
+        },
+        {
+          "@type": "Organization",
+          "name": "Codeck",
+          "url": "https://codeck.xyz",
+          "logo": "https://codeck.xyz/favicon.svg",
+          "sameAs": [
+            "https://github.com/cyphercr0w/codeck"
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="app"></div>
