@@ -51,9 +51,9 @@ const SLIDE_COMPONENTS = [
 const SLIDE_DURATIONS = [
 	8500, // Terminal: typing(1s) + output(3.2s) + preview(1.4s) + 3s
 	7000, // Memory: typing(0.7s) + output(3.2s) + 3s
-	13000, // Teams: typing(0.9s) + agents(5.5s) + researcher(3.7s) + 3s
+	14000, // Teams: typing(0.9s) + agents(6s) + researcher(3.7s) + 3s
 	13500, // Config: 3 phases × 3.5s + 3s
-	9000, // Integrations: grid(2.5s) + flow(3.5s) + 3s
+	11000, // Integrations: grid(3s) + flow(5s) + 3s
 ];
 
 export function Showcase() {

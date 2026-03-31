@@ -382,6 +382,9 @@
 .cc-d9 {
 	animation-delay: 4.2s;
 }
+.cc-d10 {
+	animation-delay: 4.7s;
+}
 @keyframes ccAppear {
 	from {
 		opacity: 0;
@@ -414,6 +417,8 @@
 .cc-user-msg {
 	color: var(--ck-text);
 	font-weight: 500;
+	flex: 1;
+	min-width: 0;
 }
 .cc-thinking {
 	color: #a78bfa;
@@ -1292,6 +1297,9 @@
 	background: rgba(255, 255, 255, 0.01);
 	opacity: 0;
 	animation: ckItemIn 0.35s ease forwards;
+	transition:
+		border-color 0.4s ease,
+		background 0.4s ease;
 }
 .ck-integ-step:nth-child(1) {
 	animation-delay: 0.2s;
@@ -1323,6 +1331,9 @@
 	font-family: var(--ck-mono);
 	background: var(--ck-bg3);
 	color: var(--ck-text-muted);
+	transition:
+		background 0.4s ease,
+		color 0.3s ease;
 }
 .ck-integ-step.active .ck-integ-step-num {
 	background: var(--ck-accent);

@@ -12,10 +12,10 @@ export function IntegrationsSlide() {
 	const [step, setStep] = useState(0);
 	useEffect(() => {
 		const timers = [
-			setTimeout(() => setPhase("flow"), 2500),
-			setTimeout(() => setStep(1), 3000),
-			setTimeout(() => setStep(2), 4500),
-			setTimeout(() => setStep(3), 6000),
+			setTimeout(() => setPhase("flow"), 3000),
+			setTimeout(() => setStep(1), 4000),
+			setTimeout(() => setStep(2), 6000),
+			setTimeout(() => setStep(3), 8000),
 		];
 		return () => timers.forEach(clearTimeout);
 	}, []);
