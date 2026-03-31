@@ -352,6 +352,10 @@
 	gap: 6px;
 	flex-wrap: wrap;
 }
+.cc-visible {
+	opacity: 1;
+	animation: none;
+}
 .cc-d0 {
 	animation-delay: 0s;
 }

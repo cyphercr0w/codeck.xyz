@@ -51,7 +51,7 @@ const SLIDE_COMPONENTS = [
 const SLIDE_DURATIONS = [
 	8500, // Terminal: typing(1s) + output(3.2s) + preview(1.4s) + 3s
 	7000, // Memory: typing(0.7s) + output(3.2s) + 3s
-	14000, // Teams: typing(0.9s) + agents(6s) + researcher(3.7s) + 3s
+	17000, // Teams: typing(0.7s) + agents(6.5s) + researcher(5.2s) + main reply(1.3s) + 3s
 	13500, // Config: 3 phases × 3.5s + 3s
 	11000, // Integrations: grid(3s) + flow(5s) + 3s
 ];
