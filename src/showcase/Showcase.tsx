@@ -1,5 +1,6 @@
 import "./showcase.css";
 import { useState, useEffect, useCallback } from "preact/hooks";
+import { BYOKSlide } from "./BYOKSlide";
 import { TerminalSlide } from "./TerminalSlide";
 import { MemorySlide } from "./MemorySlide";
 import { TeamsSlide } from "./TeamsSlide";
@@ -7,6 +8,12 @@ import { ConfigSlide } from "./ConfigSlide";
 import { IntegrationsSlide } from "./IntegrationsSlide";
 
 const SLIDES = [
+	{
+		id: "byok",
+		label: "Connect",
+		title: "Bring your own key",
+		desc: "Connect your Anthropic account in seconds. Your API key, your usage — Claude powers up with 120+ skills, hooks, and tools.",
+	},
 	{
 		id: "terminal",
 		label: "Terminal + Preview",
@@ -40,6 +47,7 @@ const SLIDES = [
 ];
 
 const SLIDE_COMPONENTS = [
+	BYOKSlide,
 	TerminalSlide,
 	MemorySlide,
 	TeamsSlide,
@@ -49,6 +57,7 @@ const SLIDE_COMPONENTS = [
 
 // Full duration for each slide: animation time + 3s viewing pause
 const SLIDE_DURATIONS = [
+	6500, // BYOK: idle(1.2s) + loading(1s) + done(0.8s) + workspace(3.5s)
 	8000, // Terminal: typing(0.8s) + send(0.2s) + preview(2s) + skeleton(1.7s) + 3s
 	7000, // Memory: typing(0.5s) + send(0.2s) + output(3.2s) + 3s
 	17000, // Teams: typing(0.7s) + lead(6.5s) + researcher(5.2s) + return(1.3s) + 3s

@@ -1409,6 +1409,438 @@
 	margin-left: auto;
 }
 
+/* ── BYOK Slide ── */
+
+/* Phase 1 & 2 & 3: Connect/Auth/Success screens */
+.ck-byok-wizard {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 20px 24px;
+	gap: 12px;
+	animation: ckPhaseIn 0.3s ease;
+}
+
+.ck-byok-title {
+	font-size: 18px;
+	font-weight: 700;
+	color: var(--ck-text);
+	letter-spacing: -0.02em;
+}
+
+.ck-byok-subtitle {
+	font-size: 12px;
+	color: var(--ck-text2);
+	text-align: center;
+	max-width: 300px;
+}
+
+/* Connect button - Anthropic branded */
+.ck-byok-connect-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 10px 20px;
+	min-width: 200px;
+	border-radius: 8px;
+	border: 1px solid rgba(212, 132, 90, 0.3);
+	background: rgba(212, 132, 90, 0.08);
+	color: #d4845a;
+	font-size: 13px;
+	font-weight: 600;
+	font-family: var(--ck-font);
+	cursor: pointer;
+	margin-top: 8px;
+	opacity: 0;
+	animation: ckItemIn 0.2s ease forwards 0.15s;
+	transition:
+		background 0.25s ease,
+		border-color 0.25s ease,
+		color 0.25s ease,
+		box-shadow 0.25s ease,
+		transform 0.15s ease;
+}
+
+.ck-byok-connect-btn.pressed {
+	background: rgba(212, 132, 90, 0.25);
+	border-color: rgba(212, 132, 90, 0.7);
+	box-shadow: 0 0 20px rgba(212, 132, 90, 0.3);
+	transform: scale(0.97);
+}
+
+.ck-byok-connect-btn.loading {
+	background: rgba(212, 132, 90, 0.12);
+	border-color: rgba(212, 132, 90, 0.4);
+	color: #d4845a;
+}
+
+.ck-byok-connect-btn.done {
+	background: rgba(52, 211, 153, 0.12);
+	border-color: rgba(52, 211, 153, 0.4);
+	color: var(--ck-success);
+	box-shadow: 0 0 16px rgba(52, 211, 153, 0.2);
+}
+
+.ck-spinner-light {
+	border-color: rgba(212, 132, 90, 0.25);
+	border-top-color: #d4845a;
+}
+
+.ck-byok-btn-check {
+	font-weight: 700;
+	font-size: 14px;
+}
+
+.ck-byok-hint {
+	font-size: 10px;
+	color: var(--ck-text-muted);
+	margin-top: 4px;
+	opacity: 0;
+	animation: ccAppear 0.2s ease forwards 0.3s;
+}
+
+/* Auth screen */
+.ck-byok-auth-box {
+	border: 1px solid var(--ck-border-light);
+	border-radius: 12px;
+	padding: 20px 24px;
+	background: var(--ck-bg2);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+	min-width: 280px;
+	opacity: 0;
+	animation: ckPhaseIn 0.35s ease forwards;
+}
+
+.ck-byok-auth-header {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--ck-text);
+}
+
+.ck-byok-perms {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	width: 100%;
+}
+
+.ck-byok-perm {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 10px;
+	font-size: 11px;
+	color: var(--ck-text2);
+	background: rgba(255, 255, 255, 0.02);
+	border-radius: 6px;
+	opacity: 0;
+	animation: ckItemIn 0.3s ease forwards;
+}
+
+.ck-byok-perm:nth-child(1) {
+	animation-delay: 0.08s;
+}
+.ck-byok-perm:nth-child(2) {
+	animation-delay: 0.15s;
+}
+.ck-byok-perm:nth-child(3) {
+	animation-delay: 0.22s;
+}
+
+.ck-byok-perm-dot {
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: var(--ck-accent);
+	flex-shrink: 0;
+}
+
+.ck-byok-auth-btn {
+	padding: 8px 24px;
+	border-radius: 6px;
+	border: none;
+	background: var(--ck-accent);
+	color: #fff;
+	font-size: 12px;
+	font-weight: 600;
+	font-family: var(--ck-font);
+	opacity: 0;
+	animation: ckItemIn 0.2s ease forwards 0.3s;
+}
+
+.ck-byok-auth-btn.pulse {
+	animation:
+		ckItemIn 0.2s ease forwards 0.3s,
+		byokPulse 1s ease-in-out infinite 0.5s;
+}
+
+@keyframes byokPulse {
+	0%,
+	100% {
+		box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+	}
+	50% {
+		box-shadow: 0 0 0 8px rgba(99, 102, 241, 0);
+	}
+}
+
+.ck-byok-authorizing {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 12px;
+	color: var(--ck-text2);
+	animation: ckPhaseIn 0.3s ease;
+}
+
+/* Success flash */
+.ck-byok-success {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	animation: ckPhaseIn 0.3s ease;
+}
+
+.ck-byok-check {
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: rgba(52, 211, 153, 0.12);
+	border: 2px solid var(--ck-success);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	color: var(--ck-success);
+	animation: byokCheckPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes byokCheckPop {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.ck-byok-success-text {
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--ck-success);
+}
+
+/* Phase 4: Radial hub-and-spokes diagram */
+
+/* Workspace radial diagram */
+.ck-byok-workspace {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0 12px;
+	animation: ckPhaseIn 0.3s ease;
+}
+
+.ck-byok-ws-title {
+	font-size: 13px;
+	font-weight: 600;
+	color: var(--ck-text);
+	margin-bottom: 4px;
+	opacity: 0;
+	animation: ccAppear 0.3s ease forwards 0.1s;
+}
+
+/* Radial container — uses aspect-ratio so it stays square and scales with available height */
+.ck-byok-radial {
+	position: relative;
+	width: auto;
+	height: 100%;
+	max-height: 320px;
+	aspect-ratio: 1;
+	flex-shrink: 1;
+}
+
+/* Center hub */
+.ck-byok-hub {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background: radial-gradient(
+		circle,
+		rgba(212, 132, 90, 0.15) 0%,
+		rgba(212, 132, 90, 0.05) 70%
+	);
+	border: 2px solid rgba(212, 132, 90, 0.4);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2;
+	animation: byokHubGlow 2s ease-in-out infinite;
+}
+
+@keyframes byokHubGlow {
+	0%,
+	100% {
+		box-shadow:
+			0 0 15px rgba(212, 132, 90, 0.2),
+			0 0 30px rgba(212, 132, 90, 0.1);
+	}
+	50% {
+		box-shadow:
+			0 0 25px rgba(212, 132, 90, 0.35),
+			0 0 50px rgba(212, 132, 90, 0.15);
+	}
+}
+
+.ck-byok-hub-label {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 36px);
+	font-size: 10px;
+	font-weight: 600;
+	color: #d4845a;
+	white-space: nowrap;
+	font-family: var(--ck-mono);
+}
+
+/* Spoke line from center to node */
+.ck-byok-spoke {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 2px;
+	height: 0;
+	transform-origin: top center;
+	z-index: 0;
+}
+
+.ck-byok-spoke-line {
+	width: 1px;
+	height: 100%;
+	background: linear-gradient(
+		to bottom,
+		rgba(99, 102, 241, 0.4),
+		rgba(99, 102, 241, 0.15)
+	);
+	margin: 0 auto;
+}
+
+/* Each spoke animates its height from 0 to target */
+.ck-byok-spoke.animate {
+	animation: byokSpokeGrow 0.5s ease forwards;
+}
+
+@keyframes byokSpokeGrow {
+	from {
+		height: 0;
+	}
+	to {
+		height: var(--spoke-length, 100px);
+	}
+}
+
+/* Node at end of spoke — translate so the circle center sits on the spoke endpoint */
+.ck-byok-node {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	z-index: 1;
+	opacity: 0;
+	transform: translate(
+		-50%,
+		-16px
+	); /* offset by half the circle height (32/2) */
+}
+
+.ck-byok-node.visible {
+	animation: byokNodePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes byokNodePop {
+	0% {
+		opacity: 0;
+		transform: translate(-50%, -16px) scale(0.3);
+	}
+	100% {
+		opacity: 1;
+		transform: translate(-50%, -16px) scale(1);
+	}
+}
+
+.ck-byok-node-circle {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: var(--ck-bg3);
+	border: 1px solid var(--ck-border-light);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 14px;
+	color: var(--ck-accent);
+	transition: all 0.3s ease;
+}
+
+.ck-byok-node.visible .ck-byok-node-circle {
+	border-color: rgba(99, 102, 241, 0.3);
+	background: rgba(99, 102, 241, 0.08);
+	box-shadow: 0 0 10px rgba(99, 102, 241, 0.15);
+}
+
+.ck-byok-node-label {
+	font-size: 9px;
+	font-weight: 600;
+	color: var(--ck-text2);
+	white-space: nowrap;
+	font-family: var(--ck-mono);
+	letter-spacing: 0.02em;
+}
+
+/* Status footer */
+.ck-byok-ready {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-top: 12px;
+	font-size: 11px;
+	color: var(--ck-success);
+	font-weight: 500;
+	opacity: 0;
+}
+
+.ck-byok-ready.visible {
+	animation: ccAppear 0.4s ease forwards;
+}
+
+.ck-byok-ready-dot {
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	background: var(--ck-success);
+	box-shadow: 0 0 6px rgba(52, 211, 153, 0.5);
+}
+
 /* ── Showcase Responsive ── */
 @media (max-width: 768px) {
 	.ck-sidebar {
@@ -1432,6 +1864,18 @@
 	}
 	.ck-sidebar-item.active::before {
 		display: none;
+	}
+	.ck-byok-hub {
+		width: 48px;
+		height: 48px;
+	}
+	.ck-byok-node-circle {
+		width: 28px;
+		height: 28px;
+		font-size: 12px;
+	}
+	.ck-byok-node-label {
+		font-size: 8px;
 	}
 }
 @media (max-width: 640px) {
@@ -1491,6 +1935,15 @@
 	.cc-line {
 		font-size: 11px;
 	}
+	.ck-byok-hub {
+		width: 44px;
+		height: 44px;
+	}
+	.ck-byok-node-circle {
+		width: 26px;
+		height: 26px;
+		font-size: 11px;
+	}
 }
 @media (max-width: 420px) {
 	.showcase-tab {
@@ -1517,5 +1970,14 @@
 	}
 	.ck-status-bar {
 		justify-content: flex-end;
+	}
+	.ck-byok-node-circle {
+		width: 24px;
+		height: 24px;
+		font-size: 10px;
+	}
+	.ck-byok-hub {
+		width: 40px;
+		height: 40px;
 	}
 }
