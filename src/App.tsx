@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "preact/hooks";
+import { useState } from "preact/hooks";
 import { lazy, Suspense } from "preact/compat";
 
 const Showcase = lazy(() =>
@@ -6,33 +6,10 @@ const Showcase = lazy(() =>
 );
 
 function LazyShowcase() {
-	const ref = useRef<HTMLDivElement>(null);
-	const [visible, setVisible] = useState(false);
-
-	useEffect(() => {
-		const el = ref.current;
-		if (!el) return;
-		const io = new IntersectionObserver(
-			([entry]) => {
-				if (entry.isIntersecting) {
-					setVisible(true);
-					io.disconnect();
-				}
-			},
-			{ rootMargin: "200px" },
-		);
-		io.observe(el);
-		return () => io.disconnect();
-	}, []);
-
 	return (
-		<div ref={ref} style={{ minHeight: visible ? undefined : "400px" }}>
-			{visible && (
-				<Suspense fallback={null}>
-					<Showcase />
-				</Suspense>
-			)}
-		</div>
+		<Suspense fallback={null}>
+			<Showcase />
+		</Suspense>
 	);
 }
 
