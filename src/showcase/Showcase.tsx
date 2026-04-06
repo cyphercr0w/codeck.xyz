@@ -67,6 +67,7 @@ const SLIDE_DURATIONS = [
 
 export function Showcase() {
 	const [active, setActive] = useState(0);
+	const [ready, setReady] = useState(false);
 	// key increments on every slide change (including re-selecting same slide)
 	// to force component remount and restart animations
 	const [epoch, setEpoch] = useState(0);
@@ -76,16 +77,28 @@ export function Showcase() {
 		setEpoch((e) => e + 1);
 	}, []);
 
+	// Defer initial render until browser is idle to reduce TBT
+	useEffect(() => {
+		const start = () => setReady(true);
+		if ("requestIdleCallback" in window) {
+			const id = requestIdleCallback(start, { timeout: 200 });
+			return () => cancelIdleCallback(id);
+		}
+		const id = setTimeout(start, 0);
+		return () => clearTimeout(id);
+	}, []);
+
 	// Auto-advance: one timeout per slide, resets on any active/epoch change
 	useEffect(() => {
+		if (!ready) return;
 		const id = setTimeout(() => {
 			setActive((p) => (p + 1) % SLIDES.length);
 			setEpoch((e) => e + 1);
 		}, SLIDE_DURATIONS[active]);
 		return () => clearTimeout(id);
-	}, [active, epoch]);
+	}, [active, epoch, ready]);
 
-	const Comp = SLIDE_COMPONENTS[active];
+	const Comp = ready ? SLIDE_COMPONENTS[active] : null;
 
 	return (
 		<section class="showcase">
@@ -107,7 +120,7 @@ export function Showcase() {
 			</div>
 			<div class="showcase-viewport">
 				<div class="showcase-slide" key={epoch}>
-					<Comp />
+					{Comp && <Comp />}
 				</div>
 			</div>
 			<div class="showcase-dots" role="tablist">
