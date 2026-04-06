@@ -110,12 +110,15 @@ export function Showcase() {
 					<Comp />
 				</div>
 			</div>
-			<div class="showcase-dots">
+			<div class="showcase-dots" role="tablist">
 				{SLIDES.map((_, i) => (
 					<button
 						key={i}
 						class={`showcase-dot${i === active ? " active" : ""}`}
 						onClick={() => goTo(i)}
+						role="tab"
+						aria-selected={i === active}
+						aria-label={`Go to slide ${i + 1}: ${SLIDES[i].label}`}
 					/>
 				))}
 			</div>

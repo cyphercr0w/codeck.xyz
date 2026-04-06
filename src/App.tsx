@@ -74,7 +74,12 @@ function CopyButton({ text }: { text: string }) {
 	}
 
 	return (
-		<button class="copy-btn" onClick={handleCopy} title="Copy to clipboard">
+		<button
+			class="copy-btn"
+			onClick={handleCopy}
+			title="Copy to clipboard"
+			aria-label="Copy to clipboard"
+		>
 			{copied ? (
 				<svg
 					width="16"
@@ -193,284 +198,286 @@ export function App() {
 				</div>
 			</nav>
 
-			{/* Hero */}
-			<section class="hero">
-				<h1 class="hero-title">
-					Claude Code,
-					<br />
-					<span class="hero-gradient">always on.</span>
-				</h1>
-				<p class="hero-sub">
-					Self-hosted sandbox with persistent memory. Access from any device.
-					One command to install.
-				</p>
-				<InstallBox />
-				<p class="hero-meta">
-					Open source &middot; Self-hosted &middot; Free &middot; Requires
-					Docker
-				</p>
-			</section>
+			<main>
+				{/* Hero */}
+				<section class="hero">
+					<h1 class="hero-title">
+						Claude Code,
+						<br />
+						<span class="hero-gradient">always on.</span>
+					</h1>
+					<p class="hero-sub">
+						Self-hosted sandbox with persistent memory. Access from any device.
+						One command to install.
+					</p>
+					<InstallBox />
+					<p class="hero-meta">
+						Open source &middot; Self-hosted &middot; Free &middot; Requires
+						Docker
+					</p>
+				</section>
 
-			<Showcase />
+				<Showcase />
 
-			{/* What you get */}
-			<section class="features">
-				<h2 class="features-title">What you get</h2>
-				<div class="feature-grid">
-					<div class="feature-card">
-						<div class="feature-icon-wrap">
-							<svg
-								class="feature-icon"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.75"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z" />
-								<path d="M12 6v6l4 2" />
-							</svg>
+				{/* What you get */}
+				<section class="features">
+					<h2 class="features-title">What you get</h2>
+					<div class="feature-grid">
+						<div class="feature-card">
+							<div class="feature-icon-wrap">
+								<svg
+									class="feature-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.75"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2z" />
+									<path d="M12 6v6l4 2" />
+								</svg>
+							</div>
+							<span class="feature-name">Persistent memory</span>
+							<span class="feature-desc">
+								Claude remembers your projects, preferences, and decisions
+								across every session.
+							</span>
 						</div>
-						<span class="feature-name">Persistent memory</span>
-						<span class="feature-desc">
-							Claude remembers your projects, preferences, and decisions across
-							every session.
-						</span>
-					</div>
-					<div class="feature-card">
-						<div class="feature-icon-wrap">
-							<svg
-								class="feature-icon"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.75"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<rect x="5" y="2" width="14" height="20" rx="2" />
-								<path d="M12 18h.01" />
-							</svg>
+						<div class="feature-card">
+							<div class="feature-icon-wrap">
+								<svg
+									class="feature-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.75"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<rect x="5" y="2" width="14" height="20" rx="2" />
+									<path d="M12 18h.01" />
+								</svg>
+							</div>
+							<span class="feature-name">Any device</span>
+							<span class="feature-desc">
+								Terminal in the browser — use it from your phone, tablet, or
+								laptop without setup.
+							</span>
 						</div>
-						<span class="feature-name">Any device</span>
-						<span class="feature-desc">
-							Terminal in the browser — use it from your phone, tablet, or
-							laptop without setup.
-						</span>
-					</div>
-					<div class="feature-card">
-						<div class="feature-icon-wrap">
-							<svg
-								class="feature-icon"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.75"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-							</svg>
+						<div class="feature-card">
+							<div class="feature-icon-wrap">
+								<svg
+									class="feature-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.75"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+								</svg>
+							</div>
+							<span class="feature-name">
+								66 sub-agents &middot; 116 skills &middot; 59 commands
+							</span>
+							<span class="feature-desc">
+								Pre-configured tool suite — planner, reviewer, security auditor,
+								TDD guide, and more.
+							</span>
 						</div>
-						<span class="feature-name">
-							66 sub-agents &middot; 116 skills &middot; 59 commands
-						</span>
-						<span class="feature-desc">
-							Pre-configured tool suite — planner, reviewer, security auditor,
-							TDD guide, and more.
-						</span>
-					</div>
-					<div class="feature-card">
-						<div class="feature-icon-wrap">
-							<svg
-								class="feature-icon"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.75"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<circle cx="12" cy="12" r="3" />
-								<path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
-							</svg>
+						<div class="feature-card">
+							<div class="feature-icon-wrap">
+								<svg
+									class="feature-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.75"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<circle cx="12" cy="12" r="3" />
+									<path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+								</svg>
+							</div>
+							<span class="feature-name">Scheduled agents</span>
+							<span class="feature-desc">
+								Run agents on a cron — monitoring, testing, maintenance. They
+								work while you sleep.
+							</span>
 						</div>
-						<span class="feature-name">Scheduled agents</span>
-						<span class="feature-desc">
-							Run agents on a cron — monitoring, testing, maintenance. They work
-							while you sleep.
-						</span>
-					</div>
-					<div class="feature-card">
-						<div class="feature-icon-wrap">
-							<svg
-								class="feature-icon"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.75"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<rect x="2" y="3" width="20" height="14" rx="2" />
-								<path d="M8 21h8M12 17v4" />
-							</svg>
+						<div class="feature-card">
+							<div class="feature-icon-wrap">
+								<svg
+									class="feature-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.75"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<rect x="2" y="3" width="20" height="14" rx="2" />
+									<path d="M8 21h8M12 17v4" />
+								</svg>
+							</div>
+							<span class="feature-name">Live preview panel</span>
+							<span class="feature-desc">
+								Dev server output renders in a split panel next to the terminal.
+								HMR works out of the box.
+							</span>
 						</div>
-						<span class="feature-name">Live preview panel</span>
-						<span class="feature-desc">
-							Dev server output renders in a split panel next to the terminal.
-							HMR works out of the box.
-						</span>
-					</div>
-					<div class="feature-card">
-						<div class="feature-icon-wrap">
-							<svg
-								class="feature-icon"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.75"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-								<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-							</svg>
+						<div class="feature-card">
+							<div class="feature-icon-wrap">
+								<svg
+									class="feature-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.75"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+									<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+								</svg>
+							</div>
+							<span class="feature-name">One-click integrations</span>
+							<span class="feature-desc">
+								GitHub, Vercel, Supabase, Stripe, Slack, AWS — connect once, the
+								agent uses it everywhere.
+							</span>
 						</div>
-						<span class="feature-name">One-click integrations</span>
-						<span class="feature-desc">
-							GitHub, Vercel, Supabase, Stripe, Slack, AWS — connect once, the
-							agent uses it everywhere.
-						</span>
-					</div>
-					<div class="feature-card">
-						<div class="feature-icon-wrap">
-							<svg
-								class="feature-icon"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.75"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-								<circle cx="9" cy="7" r="4" />
-								<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-								<path d="M16 3.13a4 4 0 0 1 0 7.75" />
-							</svg>
+						<div class="feature-card">
+							<div class="feature-icon-wrap">
+								<svg
+									class="feature-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.75"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+									<circle cx="9" cy="7" r="4" />
+									<path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+									<path d="M16 3.13a4 4 0 0 1 0 7.75" />
+								</svg>
+							</div>
+							<span class="feature-name">Agent Teams</span>
+							<span class="feature-desc">
+								Claude assembles its own team — spawns researchers,
+								implementers, and reviewers that work in parallel.
+							</span>
 						</div>
-						<span class="feature-name">Agent Teams</span>
-						<span class="feature-desc">
-							Claude assembles its own team — spawns researchers, implementers,
-							and reviewers that work in parallel.
-						</span>
-					</div>
-					<div class="feature-card">
-						<div class="feature-icon-wrap">
-							<svg
-								class="feature-icon"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.75"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-							</svg>
+						<div class="feature-card">
+							<div class="feature-icon-wrap">
+								<svg
+									class="feature-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.75"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+								</svg>
+							</div>
+							<span class="feature-name">Token optimization</span>
+							<span class="feature-desc">
+								On-demand rules, output compression, and smart compaction keep
+								Claude effective in long sessions.
+							</span>
 						</div>
-						<span class="feature-name">Token optimization</span>
-						<span class="feature-desc">
-							On-demand rules, output compression, and smart compaction keep
-							Claude effective in long sessions.
-						</span>
-					</div>
-					<div class="feature-card">
-						<div class="feature-icon-wrap">
-							<svg
-								class="feature-icon"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.75"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
-								<line x1="4" y1="22" x2="4" y2="15" />
-							</svg>
+						<div class="feature-card">
+							<div class="feature-icon-wrap">
+								<svg
+									class="feature-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.75"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+									<line x1="4" y1="22" x2="4" y2="15" />
+								</svg>
+							</div>
+							<span class="feature-name">89K+ community skills</span>
+							<span class="feature-desc">
+								Browse and install from the largest skill marketplace. One click
+								to add any capability.
+							</span>
 						</div>
-						<span class="feature-name">89K+ community skills</span>
-						<span class="feature-desc">
-							Browse and install from the largest skill marketplace. One click
-							to add any capability.
-						</span>
-					</div>
-					<div class="feature-card">
-						<div class="feature-icon-wrap">
-							<svg
-								class="feature-icon"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="1.75"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<polyline points="23 4 23 10 17 10" />
-								<path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
-							</svg>
+						<div class="feature-card">
+							<div class="feature-icon-wrap">
+								<svg
+									class="feature-icon"
+									width="20"
+									height="20"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="1.75"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<polyline points="23 4 23 10 17 10" />
+									<path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+								</svg>
+							</div>
+							<span class="feature-name">1-command updates</span>
+							<span class="feature-desc">
+								Run the installer again to update. Your data, memory, and config
+								are always preserved.
+							</span>
 						</div>
-						<span class="feature-name">1-command updates</span>
-						<span class="feature-desc">
-							Run the installer again to update. Your data, memory, and config
-							are always preserved.
-						</span>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			{/* Cloud Waitlist */}
-			<section class="waitlist">
-				<h2 class="waitlist-title">Codeck Cloud — coming soon</h2>
-				<p class="waitlist-sub">
-					Don't want to self-host? We'll run Codeck for you — a dedicated VPS
-					online 24/7 with your own subdomain. Join the waitlist for a 7-day
-					free trial.
-				</p>
-				<WaitlistForm />
-			</section>
+				{/* Cloud Waitlist */}
+				<section class="waitlist">
+					<h2 class="waitlist-title">Codeck Cloud — coming soon</h2>
+					<p class="waitlist-sub">
+						Don't want to self-host? We'll run Codeck for you — a dedicated VPS
+						online 24/7 with your own subdomain. Join the waitlist for a 7-day
+						free trial.
+					</p>
+					<WaitlistForm />
+				</section>
 
-			{/* Footer CTA */}
-			<section class="footer-cta">
-				<h2 class="footer-cta-title">Ready to start?</h2>
-				<p class="footer-cta-sub">
-					Free forever. Your data stays on your machine.
-				</p>
-				<InstallBox />
-			</section>
+				{/* Footer CTA */}
+				<section class="footer-cta">
+					<h2 class="footer-cta-title">Ready to start?</h2>
+					<p class="footer-cta-sub">
+						Free forever. Your data stays on your machine.
+					</p>
+					<InstallBox />
+				</section>
+			</main>
 
 			{/* Footer */}
 			<footer class="footer">
