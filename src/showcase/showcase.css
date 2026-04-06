@@ -68,8 +68,6 @@
 	border: 1px solid var(--ck-border-light);
 	background: var(--ck-bg);
 	box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
-	content-visibility: auto;
-	contain-intrinsic-size: auto 460px;
 	height: 440px;
 }
 .showcase-slide {

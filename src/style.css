@@ -218,8 +218,6 @@ a:hover {
 	max-width: 880px;
 	margin: 0 auto;
 	padding: 0 24px 72px;
-	content-visibility: auto;
-	contain-intrinsic-size: auto 800px;
 }
 .feature-grid {
 	display: grid;
