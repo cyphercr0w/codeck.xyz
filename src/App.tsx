@@ -1,17 +1,5 @@
 import { useState } from "preact/hooks";
-import { lazy, Suspense } from "preact/compat";
-
-const Showcase = lazy(() =>
-	import("./showcase/Showcase").then((m) => ({ default: m.Showcase })),
-);
-
-function LazyShowcase() {
-	return (
-		<Suspense fallback={null}>
-			<Showcase />
-		</Suspense>
-	);
-}
+import { Showcase } from "./showcase/Showcase";
 
 function WaitlistForm() {
 	const [email, setEmail] = useState("");
@@ -229,7 +217,7 @@ export function App() {
 					</p>
 				</section>
 
-				<LazyShowcase />
+				<Showcase />
 
 				{/* What you get */}
 				<section class="features">
